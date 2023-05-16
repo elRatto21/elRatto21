@@ -1,6 +1,9 @@
+# Visit https://github.com/lowlighter/metrics#-documentation for full reference
 name: Metrics
 on:
+  # Schedule updates (each hour)
   schedule: [{cron: "0 * * * *"}]
+  # Lines below let you run workflow manually and on each commit
   workflow_dispatch:
   push: {branches: ["master", "main"]}
 jobs:
@@ -24,8 +27,15 @@ jobs:
           # Options
           user: elRatto21
           template: classic
-          base: header, activity, repositories
+          base: activity, repositories
           config_timezone: Europe/Berlin
+          plugin_habits: yes
+          plugin_habits_charts_type: classic
+          plugin_habits_days: 90
+          plugin_habits_facts: yes
+          plugin_habits_from: 300
+          plugin_habits_languages_limit: 10
+          plugin_habits_languages_threshold: 0%
           plugin_isocalendar: yes
           plugin_isocalendar_duration: half-year
           plugin_languages: yes
@@ -33,7 +43,7 @@ jobs:
           plugin_languages_analysis_timeout_repositories: 7.5
           plugin_languages_categories: markup, programming
           plugin_languages_colors: github
-          plugin_languages_limit: 10
+          plugin_languages_limit: 12
           plugin_languages_recent_categories: markup, programming
           plugin_languages_recent_days: 365
           plugin_languages_recent_load: 300
